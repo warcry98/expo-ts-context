@@ -3,18 +3,19 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import SignIn from './src/screens/SignIn';
 import Dashboard from './src/screens/Dashboard';
+import { NavigationContainer } from '@react-navigation/native';
+import { SnackBarProvider } from './src/contexts/snack';
+import { AuthProvider } from './src/contexts/auth';
+import Routes from './src/routes';
 
 export default function App(): React.ReactElement {
   return (
-    <Dashboard />
+    <NavigationContainer>
+      <SnackBarProvider>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </SnackBarProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

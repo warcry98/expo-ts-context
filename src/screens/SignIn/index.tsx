@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, View } from "react-native";
+import { useAuth } from "../../contexts/auth";
 
 const Styles = StyleSheet.create({
   container: {
@@ -9,13 +10,18 @@ const Styles = StyleSheet.create({
   }
 })
 
-const SignIn: React.FC = (): React.ReactElement => {
+const SignInScreen: React.FC = (): React.ReactElement => {
+  const {signIn} = useAuth()
+
+  function handleSignIn() {
+    signIn()
+  }
 
   return (
     <View style={Styles.container}>
-      <Button title="Sign In" onPress={() => {}}/>
+      <Button title="Sign In" onPress={handleSignIn}/>
     </View>
   )
 }
 
-export default SignIn
+export default SignInScreen

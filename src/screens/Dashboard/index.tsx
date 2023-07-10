@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import { useAuth } from "../../contexts/auth";
 
 const Styles = StyleSheet.create({
   container: {
@@ -10,10 +11,15 @@ const Styles = StyleSheet.create({
 })
 
 const Dashboard: React.FC = () => {
+  const {user, signOut} = useAuth()
+
+  function handleSignOut() {
+    signOut()
+  }
   return (
     <View style={Styles.container}>
-      <Text>username</Text>
-      <Button title="Sign Out" onPress={() => {}} />
+      <Text>{user?.name}</Text>
+      <Button title="Sign Out" onPress={handleSignOut} />
     </View>
   )
 }
