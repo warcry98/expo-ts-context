@@ -1,12 +1,12 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import SignIn from './src/screens/SignIn';
+import Dashboard from './src/screens/Dashboard';
 
-export default function App() {
+export default function App(): React.ReactElement {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Dashboard />
   );
 }
 
